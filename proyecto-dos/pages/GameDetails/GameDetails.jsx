@@ -1,6 +1,7 @@
 //console.log("GameDetails.jsx");
 import { useParams } from "react-router-dom";
 import {  useEffect,useState } from "react";
+import { ArrowUp} from 'lucide-react';
 const GameDetails = () => {
 
     const [game, setGames] = useState([]);
@@ -31,16 +32,59 @@ const GameDetails = () => {
       return <h2 className="text-center text-2xl mt-10">Juego no encontrado 😢</h2>;
     }
   
-     return(
+    return (
+      <>
       <div
-        className="w-full h-screen bg-cover bg-center flex flex-col items-center justify-center text-white"
-        style={{ backgroundImage: `url(${juegos.gift_url})` }}
+        className="w-full h-screen bg-cover bg-center flex items-center justify-start text-white backdrop-blur-sm bg-black/30 px-4 sm:px-8"
+        style={{ backgroundImage: `url(${juegos.background_image})` }}
       >
-        <h1 className="text-5xl font-bold mb-4">{juegos.name}</h1>
-        <p className="text-2xl mb-2">Precio: ${juegos.precio}</p>
-        <p className="text-xl mb-4">{juegos.detalles}</p>
-        <button className="px-6 py-2 bg-black bg-opacity-70 rounded-md">Comprar</button>
+        <div className="bg-black/50 p-8 rounded-lg shadow-2xl max-w-2xl text-left w-full ml-12">
+          <h1 className="text-5xl sm:text-7xl font-extrabold mb-6 drop-shadow-lg animate-fade-in">
+            {juegos.name}
+          </h1>
+    
+          <p className="text-2xl sm:text-3xl mb-4 bg-black/40 p-2 rounded-md backdrop-blur-sm">
+            {`Precio: $${juegos.precio}`}
+          </p>
+    
+          <p className="text-lg sm:text-xl mb-8 text-left max-w-2xl">
+            {juegos.detalles}
+          </p>
+    
+          
+    
+          <div className="flex justify-end">
+            <button className="flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-purple-500 to-pink-500 hover:from-pink-500 hover:to-purple-500 rounded-full text-white font-semibold shadow-lg transition duration-300 ease-in-out">
+              Agregar a lista de favoritos
+              <ArrowUp className="animate-bounce" />
+            </button>
+          </div>
+          
+        </div>
+      
       </div>
+      <div className="flex items-center justify-start gap-12 ml-12">
+      <img 
+              src={juegos.gift_url}
+              className="m-16 rounded-lg shadow-lg w-[40%] h-auto"
+            />
+        <div className="space-y-4 mb-8">
+          <p className="text-4xl sm:text-5xl font-bold text-gray-300">
+            Género: <span className="font-normal text-white">{juegos.genero}</span>
+          </p>
+          <p className="text-4xl sm:text-5xl font-semibold text-gray-300">
+            Empresa: <span className="font-normal text-white">{juegos.empresa}</span>
+          </p>
+          <p className="text-4xl sm:text-5xl font-semibold text-gray-300">
+            Rating: <span className="font-normal text-white">{juegos.rating}</span>
+          </p>
+          <p className="text-4xl sm:text-5xl font-semibold text-gray-300">
+            Fecha de lanzamiento: <span className="font-normal text-white">{juegos.released}</span>
+          </p>
+          </div>
+           
+      </div>
+      </>
     );
   };
   export default GameDetails;
