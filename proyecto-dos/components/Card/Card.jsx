@@ -7,7 +7,7 @@ const Card = ({ id,name, price, button, img }) => {
         <img src={img} alt="" className="absolute inset-0 w-full h-full object-cover z-0" />
         
         <div className="relative z-10 text-white p-4 flex justify-end text-4xl">
-          <Heart className="text-black-250 w-10 h-10 fill-red-500 hover:scale-120 cursor:pointer " />
+          <Heart className="text-black-250 w-10 h-10 fill-red-500 hover:scale-120 cursor-pointer " />
         </div>
   
         <div className="flex flex-col h-40 relative z-10 text-white p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-in-out backdrop-blur-sm">

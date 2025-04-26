@@ -1,6 +1,13 @@
 import Card from "../../components/Card/Card" 
 import { useEffect, useState } from "react";
 
+/*
+ <pagina main>
+    <componente useState>
+    <componente useState>
+ </pagina main>
+*/
+
 const Home = () => {
     const [game, setGames] = useState([]);
     
@@ -11,31 +18,32 @@ const Home = () => {
         const resp1 = await juegos.json(); 
         const resp2 = await juegos2.json(); 
         const resp = [...resp1, ...resp2]
+
         setGames(resp)
     } 
     
     useEffect(() => {
         games()
-    },[])
         
-      console.log(game)
+        const gamesUser = game
+    },[])
     
     if(game.length == 0){
-    return <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
-            <div className="w-16 h-16 border-4 border-t-transparent border-white rounded-full animate-spin"></div>
-           </div>
-  
+        return <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
+                    <div className="w-16 h-16 border-4 border-t-transparent border-white rounded-full animate-spin"></div>
+               </div>
     }
 
     const renderCards = () => {
         return (game.map((item) => {
             return <Card 
-            key={item.id}
-            id={item.id}
-            name={item.name} 
-            price={item.precio} 
-            button={"View More"}
-             img={item.logo}/>
+                key={item.id}
+                id={item.id}
+                name={item.name} 
+                price={item.precio} 
+                button={"View More"}
+                img={item.logo}
+            />
         }))
     }
 
@@ -54,30 +62,3 @@ const Home = () => {
 
 export default Home
 
-
-
-
-   // <div className="p-4">
-    //   {game.map((juego) => (
-    //     <div key={juego.id} className="border rounded-lg shadow-md p-4 mb-4 bg-white">
-
-    //       <div className="text-lg font-bold">SOY {juego.id}</div>
-    //       <div className="text-gray-700">Nombre: {juego.name}</div>
-    //       <div className="text-gray-700">Género: {juego.genero}</div>
-    //       <div className="text-gray-700">Empresa: {juego.empresa}</div>
-    //       <div className="text-gray-700">Precio: {juego.precio}</div>
-    //       <div className="text-gray-700">Lanzamiento: {juego.released}</div>
-
-    //       <div className="text-blue-500 underline">
-    //         <img src={juego.gift_url} target="_blank" rel="noopener noreferrer" />
-    //       </div>
-
-    //       <div>
-    //         <img src={juego.background_image} alt={juego.name} className="w-full h-48 object-cover rounded-md mt-2"/>
-    //       </div>
-
-    //       <div className="text-yellow-500 font-semibold">Rating: {juego.rating}</div>
-          
-    //     </div>
-    //   ))}
-    // </div>
