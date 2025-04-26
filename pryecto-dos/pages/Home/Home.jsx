@@ -1,29 +1,48 @@
+import Card from "../../components/Card/Card" 
+import { useEffect, useState } from "react";
 
 const Home = () => {
-    // const [game, setGames] = useState([]);
+    const [game, setGames] = useState([]);
     
-    // const games = async () => 
-    // {
-    //     const  juegos = await fetch("https://680c06432ea307e081d2fe6b.mockapi.io/API/v1/juegos")
-    //     const  juegos2 = await fetch("https://680c06432ea307e081d2fe6b.mockapi.io/API/v1/juegos2")
-    //     const resp1 = await juegos.json(); 
-    //     const resp2 = await juegos2.json(); 
-    //     const resp = [...resp1, ...resp2]
-    //     setGames(resp)
-    // } 
+    const games = async () => 
+    {
+        const  juegos = await fetch("https://680c06432ea307e081d2fe6b.mockapi.io/API/v1/juegos")
+        const  juegos2 = await fetch("https://680c06432ea307e081d2fe6b.mockapi.io/API/v1/juegos2")
+        const resp1 = await juegos.json(); 
+        const resp2 = await juegos2.json(); 
+        const resp = [...resp1, ...resp2]
+        setGames(resp)
+    } 
     
-    // useEffect(() => {
-    //     games()
-    // },[])
+    useEffect(() => {
+        games()
+    },[])
         
-    //   console.log(game)
+      console.log(game)
     
-    // if(game.length == 0){
-    // return "Cargando..."
-    // }
+    if(game.length == 0){
+    return <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
+            <div className="w-16 h-16 border-4 border-t-transparent border-white rounded-full animate-spin"></div>
+           </div>
+  
+    }
+
+    const renderCards = () => {
+        return (game.map((item) => {
+            return <Card name={item.name} price={item.precio} button={"View More"} img={item.gift_url}/>
+        }))
+    }
 
     return (
-        <div>Home</div>
+        <main className="w-full h-auto border border-dark">
+            <section>
+                <h1 className="p-4 m-4 font-bold text-5xl ml-16  text-amber-500">¡New Games 2025!</h1>
+                <div className="h-auto w-11/12 grid xl:grid-cols-6 lg:grid-cols-4 sm:grid-cols-2 gap-4 p-6 mx-auto">
+                    {renderCards()}
+                </div>
+            </section>
+        </main>
+
     )
 }
 

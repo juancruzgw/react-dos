@@ -6,7 +6,7 @@ import GamesFavorites from "../pages/GamesFavorites/GamesFavorites";
 const App = () => {
 
   return (
-    <div>
+    <div className="bg-[#2a2a34]">
       <Navbar/>
 
       <Routes>
