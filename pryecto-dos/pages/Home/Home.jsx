@@ -29,7 +29,13 @@ const Home = () => {
 
     const renderCards = () => {
         return (game.map((item) => {
-            return <Card name={item.name} price={item.precio} button={"View More"} img={item.logo}/>
+            return <Card 
+            key={item.id}
+            id={item.id}
+            name={item.name} 
+            price={item.precio} 
+            button={"View More"}
+             img={item.logo}/>
         }))
     }
 

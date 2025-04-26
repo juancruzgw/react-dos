@@ -1,6 +1,7 @@
 import { Heart} from 'lucide-react';
+import { Link } from "react-router-dom";
 
-const Card = ({ name, price, button, img }) => {
+const Card = ({ id,name, price, button, img }) => {
     return (
       <div className="relative group border border-dark h-[75vh] bg-amber-50 rounded-md overflow-hidden flex flex-col justify-between hover:scale-105 transition-transform duration-300 ease-in-out shadow-xl/30">
         <img src={img} alt="" className="absolute inset-0 w-full h-full object-cover z-0" />
@@ -14,7 +15,11 @@ const Card = ({ name, price, button, img }) => {
 
           <div className="mt-auto flex items-center justify-end gap-2">
             <p className="text-xl font-bold mr-auto">${price}</p>
-            <button className="px-4 py-1 bg-black text-white rounded-2xl h-[30px]">{button}</button>
+            <Link
+              to={`/games-details/${id}`}
+              className="px-4 py-1 bg-black text-white rounded-2xl h-[30px] flex items-center justify-center">
+              {button}
+            </Link>
           </div>
 
         </div>
