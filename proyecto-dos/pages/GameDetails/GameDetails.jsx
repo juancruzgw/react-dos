@@ -47,7 +47,7 @@ const GameDetails = () => {
  return (
   <>
    <div
-    className="w-full h-screen bg-cover bg-center flex items-center justify-start text-white backdrop-blur-sm bg-black/30 px-4 sm:px-8"
+    className="w-full h-screen bg-cover bg-center flex items-center justify-start text-white backdrop-blur-sm bg-black/30 px-4 sm:px-8 shadow-2xl mt-38"
     style={{ backgroundImage: `url(${juego.background_image})` }}
    >
     <div className="bg-black/50 p-8 rounded-lg shadow-2xl max-w-2xl text-left w-full ml-12">
@@ -77,7 +77,7 @@ const GameDetails = () => {
    <div className="flex items-center justify-start gap-12 ml-12">
     <img
      src={juego.gift_url}
-     className="m-16 rounded-lg shadow-lg w-[40%] h-auto"
+     className="m-16 border-gray-700 border-8 rounded-lg shadow-2xl w-[40%] h-auto"
     />
     <div className="space-y-4 mb-8">
      <p className="text-4xl sm:text-5xl font-bold text-gray-300">
