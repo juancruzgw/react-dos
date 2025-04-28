@@ -5,7 +5,7 @@ import GamesFavorites from "../pages/GamesFavorites/GamesFavorites";
 import GameDetails from "../pages/GameDetails/GameDetails";
 import { useEffect } from "react";
 import { useState } from "react";
-
+import ScrollToTop from "../components/ScrollTop/ScrollTop";
 const App = () => {
 
  const [game, setGame] = useState([]);
@@ -47,6 +47,7 @@ const App = () => {
   <div className="bg-[#2a2a34]">
 
    <Navbar />
+   <ScrollToTop />
    <Routes>
     <Route path="/" element={<Home games={game} />} />
     <Route path="/games-favorites" element={<GamesFavorites games={game} />}  />
