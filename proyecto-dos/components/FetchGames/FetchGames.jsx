@@ -1,22 +1,40 @@
-import { useEffect, useState } from "react";
+import { createContext, useState, useEffect } from 'react';
 
-const FetchGames = () => {
-      const [game, setGames] = useState([]);
-        
-        const games = async () => 
-        {
-            const  juegos = await fetch("https://680c06432ea307e081d2fe6b.mockapi.io/API/v1/juegos")
-            const  juegos2 = await fetch("https://680c06432ea307e081d2fe6b.mockapi.io/API/v1/juegos2")
-            const resp1 = await juegos.json(); 
-            const resp2 = await juegos2.json(); 
-            const resp = [...resp1, ...resp2]
-            setGames(resp)
-        } 
-        useEffect(() => {
-            games()
-        },[])
+export const GamesContext = createContext();
 
-        return game;
- }
- 
- export default FetchGames
+export function GamesProvider({ children }) {
+  const [games, setGames] = useState([]);
+
+  useEffect(() => {
+    const fetchGames = async () => {
+      try {
+        const response = await fetch("https://680c06432ea307e081d2fe6b.mockapi.io/API/v1/juegos");
+        if (!response.ok) {
+          throw new Error("Error al recuperar los juegos");
+        }
+        const data = await response.json();
+        const gamesWithLikes = data.map(game => ({ ...game, liked: false }));
+        setGames(gamesWithLikes);
+        console.log(gamesWithLikes);
+      } catch (error) {
+        console.error("Error buscando los juegos:", error);
+      }
+    };
+
+    fetchGames();
+  }, []);
+
+  const toggleLike = (id) => {
+    setGames(prevGames =>
+      prevGames.map(game =>
+        game.id === id ? { ...game, liked: !game.liked } : game
+      )
+    );
+  };
+
+  return (
+    <GamesContext.Provider value={{ games, toggleLike }}>
+      {children}
+    </GamesContext.Provider>
+  );
+}
