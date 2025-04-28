@@ -1,9 +1,7 @@
 import Button from "../../components/Button/Button";
-import { useState } from "react";
+// import { useState } from "react";
 
 const GamesFavorites = () => {
-    
-
  return (
   <main className="h-[100vh]">
    <section>
@@ -16,7 +14,7 @@ const GamesFavorites = () => {
       {/* <CardRow/> */}
       <div className="flex flex-row justify-between items-end p-4 m-4 border border-dark">
        <div>
-        <img src="" alt="" />
+        {/* <img src="" alt="" /> */}
        </div>
        <div>Nombre del juego</div>
        <div>precio</div>

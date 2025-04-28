@@ -1,13 +1,17 @@
 import { Heart} from 'lucide-react';
 import { Link } from "react-router-dom";
 
-const Card = ({ id,name, price, button, img }) => {
+const Card = ({ id,name, price, button, img , like }) => {
+    const isLike = () => {
+      return like ? <Heart className="text-black-250 w-10 h-10 fill-red-500 hover:scale-120 cursor-pointer " /> : <Heart className="text-black-250 w-10 h-10 hover:scale-120 cursor-pointer " />
+    }
+
     return (
       <div className="relative group  h-[75vh] bg-amber-50 rounded-xl overflow-hidden flex flex-col justify-between hover:scale-101 transition-transform duration-300 ease-in-out shadow-xl/30">
         <img src={img} alt="" className="absolute inset-0 w-full h-full object-cover z-0" />
         
         <div className="relative z-10 text-white p-4 flex justify-end text-4xl">
-          <Heart className="text-black-250 w-10 h-10 fill-red-500 hover:scale-120 cursor-pointer " />
+        {isLike()}
         </div>
   
         <div className="flex flex-col h-40 relative z-10 text-white p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-in-out backdrop-blur-sm hover:scale-101">
