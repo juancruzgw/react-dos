@@ -5,7 +5,7 @@ import { GamesContext } from "../../components/FetchGames/FetchGames";
 const Home = () => {
     
      const { games, toggleLike } = useContext(GamesContext); 
-
+    
 
     const renderCards = () => {
         return (games.map((item) => {

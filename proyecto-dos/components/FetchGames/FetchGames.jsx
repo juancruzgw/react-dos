@@ -15,7 +15,7 @@ export function GamesProvider({ children }) {
         const data = await response.json();
         const gamesWithLikes = data.map(game => ({ ...game, liked: false }));
         setGames(gamesWithLikes);
-        console.log(gamesWithLikes);
+        // console.log(gamesWithLikes);
       } catch (error) {
         console.error("Error buscando los juegos:", error);
       }
@@ -30,6 +30,7 @@ export function GamesProvider({ children }) {
         game.id === id ? { ...game, liked: !game.liked } : game
       )
     );
+    console.log("Juego actualizado:", games.find(game => game.id === id));
   };
 
   return (
