@@ -1,37 +1,23 @@
 import { useParams } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useContext, useState } from "react";
+import { GamesContext } from "../../components/FetchGames/FetchGames";
 import { ArrowUp } from "lucide-react";
 
 
-const GameDetails = ({games , setGames}) => {
- const [game, setGame] = useState([]);
-//  const games = async () => {
-//   const juegos = await fetch(
-//     "https://680c06432ea307e081d2fe6b.mockapi.io/API/v1/juegos"
-//   );
-//   const resp = await juegos.json();
-//   setGames(resp);
-//  };
 
-//  useEffect(() => {
-//   games();
-//  }, []);
+const GameDetails = () => {
+  const { id } = useParams();
+  const { games } = useContext(GamesContext);
+  const { toggleLike } = useContext(GamesContext);
 
- const { id } = useParams();
-
-  useState(()=> {
-    setGame(games.find((game) => game.id === parseInt(id)))
-  },[],game)
+  const game = games?.find((game) => game.id === parseInt(id));
 
 
-  const handleAddGame = () => { 
-    const gameislike = { ...game, like: !game.like }
-    setGames(gameislike)
+  if (!game) {
+    return <p>game no encontrado</p>;
   }
 
-  
-
- return (
+  return (
   <>
    <div
     className="w-full h-screen bg-cover bg-center flex items-center justify-start text-white backdrop-blur-sm bg-black/30 px-4 sm:px-8 shadow-2xl mt-38"
@@ -52,7 +38,7 @@ const GameDetails = ({games , setGames}) => {
 
      <div className="flex justify-end">
       <button
-      onClick={handleAddGame}
+       onClick={() => toggleLike(game.id)}
        className="flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-purple-500 to-pink-500 hover:from-pink-500 hover:to-purple-500 rounded-full text-white font-semibold shadow-lg transition duration-300 ease-in-out"
       >
        Agregar a lista de favoritos
@@ -84,6 +70,6 @@ const GameDetails = ({games , setGames}) => {
    </div>
   </>
  );
-}
+};
 
 export default GameDetails;
