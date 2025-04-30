@@ -3,7 +3,10 @@ import { createContext, useState, useEffect } from 'react';
 export const GamesContext = createContext();
 
 export function GamesProvider({ children }) {
-  const [games, setGames] = useState([]);
+  const [games, setGames] = useState(() => {
+    const stored = localStorage.getItem("games");
+    return stored ? JSON.parse(stored) : null; 
+  });
 
   useEffect(() => {
     const fetchGames = async () => {
@@ -14,22 +17,30 @@ export function GamesProvider({ children }) {
         }
         const data = await response.json();
         const gamesWithLikes = data.map(game => ({ ...game, liked: false }));
-        setGames(gamesWithLikes);
+        setGames(gamesWithLikes); 
       } catch (error) {
         console.error("Error buscando los juegos:", error);
       }
     };
 
-    fetchGames();
-  }, []);
+    if (!games) {
+      fetchGames();
+    }
+  }, [games]);
+
+  useEffect(() => {
+    if (games) {
+      localStorage.setItem("games", JSON.stringify(games));
+    }
+  }, [games]);
 
   const toggleLike = (id) => {
-    setGames(prevGames =>
-      prevGames.map(game =>
+    setGames(prevGames => {
+      const updatedGames = prevGames.map(game =>
         game.id === id ? { ...game, liked: !game.liked } : game
-      )
-    );
-    console.log("Juego actualizado:", games.find(game => game.id === id));
+      );
+      return updatedGames;
+    });
   };
 
   return (

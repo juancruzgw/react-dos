@@ -40,7 +40,7 @@ const GameDetails = () => {
     className="w-full h-screen bg-cover bg-center flex items-center justify-start text-white backdrop-blur-sm bg-black/30 px-4 sm:px-8 shadow-2xl mt-38"
     style={{ backgroundImage: `url(${game.background_image})` }}
    >
-    <div className="bg-black/50 p-8 rounded-lg shadow-2xl max-w-2xl text-left w-full ml-12">
+    <div className="bg-black/50 p-8 rounded-lg shadow-2xl max-w-2xl text-left w-full ml-12 ">
      <h1 className="text-5xl sm:text-7xl font-extrabold mb-6 drop-shadow-lg animate-fade-in">
       {game.name}
      </h1>
@@ -56,7 +56,7 @@ const GameDetails = () => {
      <div className="flex justify-end">
       <button
        onClick={() => toggleLike(game.id)}
-       className="flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-purple-500 to-pink-500 hover:from-pink-500 hover:to-purple-500 rounded-full text-white font-semibold shadow-lg transition duration-300 ease-in-out"
+       className="flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-pink-500 to-pink-500 hover:from-pink-500 hover:to-purple-500 rounded-full text-white font-semibold shadow-lg transition duration-300 ease-in-out"
       >
        Agregar a lista de favoritos
        <ArrowUp className="animate-bounce" />
@@ -64,7 +64,7 @@ const GameDetails = () => {
      </div>
     </div>
    </div>
-   <div className="flex items-center justify-start gap-12 ml-12">
+   <div className="flex items-center justify-start gap-12  bg-[#222]  shadow-2xl ">
     <img
      src={game.gift_url}
      className="m-16 border-gray-700 border-8 rounded-lg shadow-2xl w-[40%] h-auto"

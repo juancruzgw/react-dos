@@ -8,7 +8,7 @@ const CardFavoritos = ({ id,name, price, button, img, liked}) => {
     }
     
     return (
-        <div className='flex justify-between border-2 border-gray-700 rounded-lg p-1 bg-neutral-800 mt-20'>
+        <div className='flex border-2 border-gray-700 rounded-lg p-1 bg-neutral-800 mt-20'>
             <div className="flex flex-row m-12 relative group h-60 w-38 bg-amber-50 rounded-xl  flex flex-col justify-between hover:scale-101 transition-transform duration-300 ease-in-out shadow-xl/30">
               <img src={img} alt="" className="absolute inset-0 w-full h-full object-cover z-0 rounded-xl" />
             
