@@ -16,6 +16,7 @@ const Home = () => {
                 price={item.precio} 
                 button={"View More"}
                 img={item.logo}
+                liked={item.liked}
             />
         }))
     }

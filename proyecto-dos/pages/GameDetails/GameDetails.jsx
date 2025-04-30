@@ -1,17 +1,34 @@
 import { useParams } from "react-router-dom";
-import { useContext, useState } from "react";
+import { useContext, useState , useEffect } from "react";
 import { GamesContext } from "../../components/FetchGames/FetchGames";
 import { ArrowUp } from "lucide-react";
 
 
-
 const GameDetails = () => {
+
   const { id } = useParams();
-  const { games } = useContext(GamesContext);
-  const { toggleLike } = useContext(GamesContext);
+  const {toggleLike} = useContext(GamesContext)
 
-  const game = games?.find((game) => game.id === parseInt(id));
+  const [game, setGame] = useState([]);
 
+  const obtengoJuegoPorid = async (id) => {
+    try {
+
+      const response = await fetch(`https://680c06432ea307e081d2fe6b.mockapi.io/API/v1/juegos/${id}`);
+      if (!response.ok) {
+        throw new Error("Error al recuperar el juego");
+      }
+      const data = await response.json();
+      setGame(data);
+
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  useEffect(()=> {
+    obtengoJuegoPorid(id)
+  },[])
 
   if (!game) {
     return <p>game no encontrado</p>;

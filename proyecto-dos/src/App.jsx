@@ -5,20 +5,22 @@ import GamesFavorites from '../pages/GamesFavorites/GamesFavorites';
 import GameDetails from '../pages/GameDetails/GameDetails';
 import Home from '../pages/Home/Home';
 import Nav from '../components/Nav/Nav';
-
+import  ScrollToTop  from '../components/ScrollTop/ScrollTop';
 const App = () => {
     return (
+        <>
+        {/* Es para que suba */}
+        <ScrollToTop/>
         <GamesProvider>
+           
             <Nav />
-            {/* Aquí puedes agregar tu barra de navegación */}
             <Routes>
-                {/* Aquí puedes agregar tus rutas */}
                 <Route path="/" element={<Home />} />
                 <Route path="/games-details/:id" element={<GameDetails />} />
                 <Route path="/games-favorites" element={<GamesFavorites />} /> 
-                {/* Puedes agregar más rutas aquí */}
             </Routes>
         </GamesProvider>
+        </>
     );
 };
 
