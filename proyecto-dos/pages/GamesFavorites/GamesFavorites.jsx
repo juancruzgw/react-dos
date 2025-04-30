@@ -2,9 +2,9 @@ import Button from "../../components/Button/Button";
 import { useState } from "react";
 import { useContext } from "react";
 import { GamesContext } from "../../components/FetchGames/FetchGames";
-import Card from "../../components/Card/Card";
-import { useEffect } from "react";
 
+import { useEffect } from "react";
+import CardFavoritos from "../../components/CardFavoritos/CardFavoritos";
 
 const GamesFavorites = () => {
     
@@ -22,34 +22,38 @@ const GamesFavorites = () => {
 
     const renderCards = () => {
         return (favs.map((item) => {
-            return <Card 
-                key={item.id}
+            return <CardFavoritos
                 id={item.id}
-                name={item.name} 
+                name={item.name}
                 price={item.precio} 
                 button={"View More"}
                 img={item.logo}
-            />
+                liked={item.liked}
+                />
+                
         }))
     }
 
  return (
-  <main className="h-[100vh]">
-   <section>
-    <div>
-     <Button text={"Favs"} icon={"🪤"} />
-    </div>
-    <div className="text-white">
-     <h1>List Favorites</h1>
-     <div>
-      {/* <CardRow/> */}
-      <div className="flex flex-row justify-between items-end p-4 m-4 border border-dark">
-       {renderCards()}
+    <main className="min-h-screen bg-neutral-900 text-white p-6">
+    <section className="max-w-6xl mx-auto">
+      <div className="flex justify-end mb-6">
+        <button className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md flex items-center gap-2 transition">
+          ❤ Favs
+        </button>
       </div>
-     </div>
-    </div>
-   </section>
+  
+      <div>
+        <h1 className="text-3xl font-bold mb-4 mt-27">Lista de Favoritos</h1>
+  
+        <div className=" gap-6 border border-gray-700 rounded-lg p-6 bg-neutral-800">
+          {/* Acá van tus tarjetas */}
+          {renderCards()}
+        </div>
+      </div>
+    </section>
   </main>
+  
  );
 };
 
