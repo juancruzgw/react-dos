@@ -41,6 +41,7 @@ const Home = () => {
         const existFilterGame = gamesFilter.length > 0;
         
         if (!existFilterGame && input !== "") {
+            // mejorar logica a la hora de buscar ...
             return <div className="bg-red-600 rounded-lg p-2 text-white">No encontrado...</div>;
         } else {
             return gamesFilter.map((item) => (
