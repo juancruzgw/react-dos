@@ -2,20 +2,22 @@ import Card from "../../components/Card/Card"
 import { useContext , useState} from "react";
 import { GamesContext } from "../../components/FetchGames/FetchGames";
 import BusquedaInput from "../../components/Busqueda/Busqueda"
+import { useTranslation } from "react-i18next";
 
 const Home = () => {
     
     const { games} = useContext(GamesContext);
     const [gamesFilter, setGamesFilter] = useState([]);
     const [input, setInput] = useState();
-
+    const { t } = useTranslation();
+    
     const inputSearched = (e) => {
         setInput(e.target.value)
     }
 
     const catchSearch = () => {
-       const g = games.filter((obj) => obj.name === input)
-       setGamesFilter(g);
+        const g = games.filter((obj) => obj.name.toLowerCase().includes(input.toLowerCase()));
+        setGamesFilter(g);
     }
 
     const renderCards = () => {
@@ -26,7 +28,7 @@ const Home = () => {
                     id={item.id}
                     name={item.name} 
                     price={item.precio} 
-                    button={"View More"}
+                    button={t("view more")}
                     img={item.logo}
                     liked={item.liked}
                 />
@@ -40,7 +42,7 @@ const Home = () => {
     const renderFilterCard = () => {
         const existFilterGame = gamesFilter.length > 0;
         
-        if (!existFilterGame && input !== "") {
+        if (!existFilterGame && input) {
             // mejorar logica a la hora de buscar ...
             return <div className="bg-red-600 rounded-lg p-2 text-white">No encontrado...</div>;
         } else {
