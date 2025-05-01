@@ -78,38 +78,38 @@ const GameDetails = () => {
        </p>
   
        <p className="text-lg sm:text-xl mb-8 text-left max-w-2xl">
-       {t(`${game.name.toLowerCase()}`) + ` description`}
+       {t(`${game.name.toLowerCase()}`) + ``}
         
        </p>
   
        <div className="flex justify-end">
         <button
          onClick={() => toggleLike(game.id)}
-         className="flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-pink-500 to-pink-500 hover:from-pink-500 hover:to-purple-500 rounded-full text-white font-semibold shadow-lg transition duration-300 ease-in-out"
+         className="flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-emerald-900 to-teal-800 hover:from-teal-800 hover:to-emerald-900 text-white rounded-xl shadow-md transition-all duration-900 rounded-full text-white font-semibold shadow-2xl"
         >
-         Agregar a lista de favoritos
+         {t('buttonAddFavorite') }
          <ArrowUp className="animate-bounce" />
         </button>
        </div>
       </div>
      </div>
-     <div className="flex items-center justify-start gap-12  bg-[#222]  shadow-2xl ">
+     <div className="flex items-center justify-start gap-12  bg-[#1f1f2b] shadow-2xl ">
       <img
        src={game.gift_url}
-       className="m-16 border-gray-700 border-8 rounded-lg shadow-2xl w-[40%] h-auto"
+       className="m-16  rounded-lg  w-[40%] h-auto hover:scale-101 hover:shadow-2xl transition-transform duration-300 ease-in-out"
       />
       <div className="space-y-4 mb-8">
        <p className="text-4xl sm:text-5xl font-bold text-gray-300">
-        Género: <span className="font-normal text-white">{game.genero}</span>
+       {t('genero') } <span className="font-normal text-white">{game.genero}</span>
        </p>
        <p className="text-4xl sm:text-5xl font-semibold text-gray-300">
-        Empresa: <span className="font-normal text-white">{game.empresa}</span>
+       {t('empresa') }   <span className="font-normal text-white">{game.empresa}</span>
        </p>
        <p className="text-4xl sm:text-5xl font-semibold text-gray-300">
-        Rating: <span className="font-normal text-white">{game.rating}</span>
+       {t('rating') }  <span className="font-normal text-white">{game.rating}</span>
        </p>
        <p className="text-4xl sm:text-5xl font-semibold text-gray-300">
-        Fecha de lanzamiento:{" "}
+       {t('released') }  
         <span className="font-normal text-white">{game.released}</span>
        </p>
       </div>

@@ -62,23 +62,27 @@ const Home = () => {
     
 
     return (
-        <main className="w-full h-full mt-36 bg-neutral-900 text-white ">
-            <section>
-                
-                <div className="p-4 m-4 font-bold text-5xl ml-16  flex items-center justify-center">
-                    <BusquedaInput  catchSearch={catchSearch} inputSearched={inputSearched}/>
-                </div>
-
-                <div className="h-auto w-[90%] grid grid-cols-3 gap-10 p-6 mx-auto">
-                    {renderFilterCard()}
-                </div>
-
-                <div className="h-auto w-[90%] grid grid-cols-3 gap-10 p-6 mx-auto">
-                    {renderCards()}
-                </div>
-            </section>
+        <main
+          className="w-full min-h-screen mt-36 bg-neutral-900 text-white bg-no-repeat bg-cover bg-center"
+          style={{
+            backgroundImage: `url('https://www.solofondos.com/wp-content/uploads/2021/03/Redmi-Note-5-Styled-Wallpapers-22.jpg')`,
+          }}
+        >
+          <section>
+            <div className="p-4 m-4 font-bold text-2xl sm:text-3xl md:text-4xl lg:text-5xl flex items-center justify-center">
+              <BusquedaInput catchSearch={catchSearch} inputSearched={inputSearched} />
+            </div>
+      
+            <div className="w-[90%] grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 p-4 mx-auto">
+              {renderFilterCard()}
+            </div>
+      
+            <div className="w-[90%] grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 p-4 mx-auto">
+              {renderCards()}
+            </div>
+          </section>
         </main>
-    )
+      );
 }
 
 export default Home

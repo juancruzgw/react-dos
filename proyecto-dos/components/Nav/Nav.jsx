@@ -1,29 +1,35 @@
 import { Link } from 'react-router-dom';
 import Button from '../Button/Button.jsx';
-import {	Gamepad,Languages, Heart , Star} from 'lucide-react';
+import { Gamepad, Languages, Heart, Star } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
-const  Navbar = () =>  {
+
+const Navbar = () => {
   const { t, i18n } = useTranslation();
-  
+
   return (
-    <nav className='w-full flex justify-between p-10 bg-[#202126]  text-white fixed top-0 z-50 mb-10'>
-      <Link to="/" className='text-[50px]'>Notices Frikis</Link>
-      <div className='flex space-x-4'>
-      <Link to="/games-favorites">
-        <Button text={"Favoritos "} className=""icon={"❤️"}/>
-      </Link>
-        <Button 
-          onClick={() => i18n.changeLanguage(i18n.language === 'es' ? 'en' : 'es')}
-          text={"Cambiar idioma"} 
-          className="flex items-center space-x-2 bg-[#3b3c42] hover:bg-[#4a4b52] text-white px-4 py-2 rounded-lg transition-colors" 
-          icon={<Languages />} 
+    <nav className="w-full h-40 flex items-center justify-between px-8 py-4 bg-[#1f1f2b] text-white fixed top-0 z-50 shadow-md">
+      <Link to="/" className="ml-4">
+        <img
+          className="w-16 h-16 transition-transform duration-300 ease-in-out hover:scale-110"
+          src="https://pngimg.com/d/joystick_PNG83299.png"
+          alt="logo"
         />
-        {localStorage.setItem("language", i18n.language)}
+      </Link>
+
+      <div className="flex gap-4 items-center">
+        <Link to="/games-favorites">
+          <Button text={t('buttonFavorites')} icon="❤️" />
+        </Link>
+
+        <Button
+          onClick={() => i18n.changeLanguage(i18n.language === 'es' ? 'en' : 'es')}
+          text={t('buttonTranslate')}
+          className="flex items-center gap-2 bg-[#2e2f3d] hover:bg-[#3c3d4a] text-white px-4 py-2 rounded-lg transition-colors"
+          icon={<Languages />}
+        />
       </div>
     </nav>
   );
-
-  
-}
+};
 
 export default Navbar;

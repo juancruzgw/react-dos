@@ -28,15 +28,15 @@ const CardFavoritos = ({ name, price, img, liked, id}) => {
     }
     
     return (
-        <div className='flex  rounded-lg p-1 bg-neutral-800 mt-20 text-dark'>
-            <div className="flex flex-row flex-wrap items-center m-12 relative group h-60 rounded-xl w-full   justify-between hover:scale-101 transition-transform duration-300 ease-in-out shadow-xl/30">
+        <div className='flex  rounded-lg p-1 bg-neutral-800 mt-10 text-dark'>
+            <div className="flex flex-row flex-wrap items-center m-2 relative group h-60 rounded-xl w-full   justify-between hover:scale-101 transition-transform duration-300 ease-in-out shadow-xl/30">
               
                   <div className=''>
-                    <img src={img} alt="" className="absolute inset-0 h-full object-cover z-0 rounded-xl" />
+                    <img src={img} alt="" className=" h-75 w-40 absolute inset-0 h-full object-cover z-0 rounded-xl mr-12" />
                   </div>
             
-                  <div className='flex relative z-10 text-dark duration-300 ease-in-out hover:scale-101'>
-                      <div className="text-4xl font-bold ">{name}</div>
+                  <div className='flex relative z-10 text-dark duration-300 ease-in-out hover:scale-101 ml-12'>
+                      <div className="text-4xl font-bold h-auto w-100 ">{name}</div>
                   
                       <div className="mt-auto flex items-center justify-end gap-2">
               
@@ -48,7 +48,7 @@ const CardFavoritos = ({ name, price, img, liked, id}) => {
                 <p className="text-xl font-bold mr-auto ">${price}</p>
               </div>
 
-              <div>
+              <div className='mr-12'>
                 {isLike()}
               </div>
 

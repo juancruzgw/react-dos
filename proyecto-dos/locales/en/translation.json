@@ -35,7 +35,20 @@
     "search results": "Search Results",
     "view more": "View More",
     "error rendering cards": "Error rendering cards",
-    "loading" : "Loading..."
+    "loading" : "Loading...",
+
+    "buttonAddFavorite": "Add to Favorites",
+
+    "genero": "Genre: ",
+    "empresa": "Company: ",
+    "rating": "Rating: ",
+    "released": "Release Date: ",
+
+    "buttonFavorites": "Favorites",
+    "buttonTranslate": "Change language to spanish",
+
+    "listFavorites": "List of Favorites"
+
 }
 
 
