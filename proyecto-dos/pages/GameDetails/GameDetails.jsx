@@ -2,10 +2,11 @@ import { useParams } from "react-router-dom";
 import { useContext, useState, useEffect } from "react";
 import { GamesContext } from "../../components/FetchGames/FetchGames";
 import { ArrowUp } from "lucide-react";
-
+import { useTranslation } from "react-i18next";
 const GameDetails = () => {
   const { id } = useParams();
   const { toggleLike } = useContext(GamesContext);
+  const { t, i18n } = useTranslation();
 
   const [game, setGame] = useState(null);
   const [error, setError] = useState(null); // <-- estado de error
@@ -27,28 +28,32 @@ const GameDetails = () => {
     obtengoJuegoPorid(id);
   }, [id]);
 
+  useEffect(() => {
+    const handleLanguageChange = (lng) => {
+      i18n.changeLanguage(lng);
+    };
+    handleLanguageChange(i18n.language);
+  }
+  , [i18n]);
+
   if (error || id == "") {
-    // Mostrar error si lo hay
     return (
       <div className="relative flex justify-center items-center h-screen bg-[#222] text-white">
-        {/* Imagen de fondo animada */}
+
         <img
           src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExZW9sOWVkNW03NnpybmdkOHk1OTFuaW9tc25mYW05aTBqcDV0Ymp5eSZlcD12MV9naWZzX3NlYXJjaCZjdD1n/kspVl6FzbdblOMKRmM/giphy.gif"
           alt="Error background"
           className="absolute top-0 left-0 w-full h-full object-cover opacity-30 z-0"
         />
     
-        {/* Texto de error sobre la imagen */}
         <div className="relative z-10 bg-black/70 px-8 py-6 rounded-xl shadow-2xl text-center w-[40%]">
           <h1 className="text-4xl font-bold mb-2">⚠️ Error</h1>
           <p className="text-xl">{error}</p>
         </div>
       </div>
-    );
-  
+    );    
   }
 
-  // Mientras carga
   if (!game) {
     return (
       <div className="flex justify-center items-center h-screen text-white text-2xl">
@@ -57,7 +62,6 @@ const GameDetails = () => {
     );
   }
 
-  // Render del contenido si todo está OK
   return (
     <>
      <div
@@ -74,7 +78,8 @@ const GameDetails = () => {
        </p>
   
        <p className="text-lg sm:text-xl mb-8 text-left max-w-2xl">
-        {game.detalles}
+       {t(`${game.name.toLowerCase()} description`)}
+        
        </p>
   
        <div className="flex justify-end">
