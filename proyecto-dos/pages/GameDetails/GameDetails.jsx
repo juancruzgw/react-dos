@@ -57,7 +57,7 @@ const GameDetails = () => {
   if (!game) {
     return (
       <div className="flex justify-center items-center h-screen text-white text-2xl">
-        Cargando...
+        {t("loading")}
       </div>
     );
   }
@@ -78,7 +78,7 @@ const GameDetails = () => {
        </p>
   
        <p className="text-lg sm:text-xl mb-8 text-left max-w-2xl">
-       {t(`${game.name.toLowerCase()} description`)}
+       {t(`${game.name.toLowerCase()}`) + ` description`}
         
        </p>
   
