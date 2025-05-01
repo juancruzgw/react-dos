@@ -3,13 +3,14 @@ import { useContext, useState, useEffect } from "react";
 import { GamesContext } from "../../components/FetchGames/FetchGames";
 import { ArrowUp } from "lucide-react";
 import { useTranslation } from "react-i18next";
+
 const GameDetails = () => {
   const { id } = useParams();
   const { toggleLike } = useContext(GamesContext);
   const { t, i18n } = useTranslation();
 
   const [game, setGame] = useState(null);
-  const [error, setError] = useState(null); // <-- estado de error
+  const [error, setError] = useState(null);
 
   const obtengoJuegoPorid = async (id) => {
     try {
@@ -20,7 +21,7 @@ const GameDetails = () => {
       const data = await response.json();
       setGame(data);
     } catch (error) {
-      setError(error.message); // <-- guardamos el mensaje de error
+      setError(error.message);
     }
   };
 
@@ -35,7 +36,7 @@ const GameDetails = () => {
     handleLanguageChange(i18n.language);
   }
   , [i18n]);
-
+  
   if (error || id == "") {
     return (
       <div className="relative flex justify-center items-center h-screen bg-[#222] text-white">

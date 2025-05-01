@@ -9,7 +9,7 @@ const Home = () => {
     const { games} = useContext(GamesContext);
     const [gamesFilter, setGamesFilter] = useState([]);
     const [input, setInput] = useState();
-    const { t } = useTranslation();
+    const { t, i18n } = useTranslation();
     
     const inputSearched = (e) => {
         setInput(e.target.value)
@@ -19,6 +19,17 @@ const Home = () => {
         const g = games.filter((obj) => obj.name.toLowerCase().includes(input.toLowerCase()));
         setGamesFilter(g);
     }
+
+    useState(() => {
+        const lenguage = localStorage.getItem("i18nLanguage");
+        if (lenguage) {
+          i18n.changeLanguage(lenguage);
+        } else {
+          const defaultLang = 'es';
+          i18n.changeLanguage(defaultLang);
+          localStorage.setItem("i18nLanguage", defaultLang);
+        }
+      }, [i18n]);
 
     const renderCards = () => {
         try{
@@ -43,7 +54,6 @@ const Home = () => {
         const existFilterGame = gamesFilter.length > 0;
         
         if (!existFilterGame && input) {
-            // mejorar logica a la hora de buscar ...
             return <div className="bg-red-600 rounded-lg p-2 text-white">No encontrado...</div>;
         } else {
             return gamesFilter.map((item) => (
@@ -52,7 +62,7 @@ const Home = () => {
                     id={item.id}
                     name={item.name} 
                     price={item.precio} 
-                    button={"View More"}
+                    button={t("view more")}
                     img={item.logo}
                     liked={item.liked}
                 />
@@ -83,7 +93,7 @@ const Home = () => {
           </section>
         </main>
       );
-}
+};
 
-export default Home
+export default Home;
 

@@ -1,10 +1,31 @@
 import { Link } from 'react-router-dom';
 import Button from '../Button/Button.jsx';
-import { Gamepad, Languages, Heart, Star } from 'lucide-react';
+import { Languages } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
+import { useEffect } from 'react';
 
 const Navbar = () => {
   const { t, i18n } = useTranslation();
+
+  const handleLanguageChange = (lang) => {
+    i18n.changeLanguage(lang);
+    localStorage.setItem("i18nLanguage", lang);
+  };
+  
+  useEffect(() => {
+    const storedLanguage = localStorage.getItem("i18nLanguage");
+  
+    if (storedLanguage) {
+      i18n.changeLanguage(storedLanguage);
+    } else {
+      const defaultLang = 'es';
+      i18n.changeLanguage(defaultLang);
+      localStorage.setItem("i18nLanguage", defaultLang);
+    }
+
+  }, []);
+
+
 
   return (
     <nav className="w-full h-40 flex items-center justify-between px-8 py-4 bg-[#1f1f2b] text-white fixed top-0 z-50 shadow-md">
@@ -22,11 +43,13 @@ const Navbar = () => {
         </Link>
 
         <Button
-          onClick={() => i18n.changeLanguage(i18n.language === 'es' ? 'en' : 'es')}
+          onClick={() => handleLanguageChange(i18n.language === 'es' ? 'en' : 'es')}
           text={t('buttonTranslate')}
           className="flex items-center gap-2 bg-[#2e2f3d] hover:bg-[#3c3d4a] text-white px-4 py-2 rounded-lg transition-colors"
           icon={<Languages />}
         />
+
+        
       </div>
     </nav>
   );
