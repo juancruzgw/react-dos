@@ -9,7 +9,7 @@ const Home = () => {
     const { games} = useContext(GamesContext);
     const [gamesFilter, setGamesFilter] = useState([]);
     const [input, setInput] = useState();
-    const { t, i18n } = useTranslation();
+    const { t } = useTranslation();
     
     const inputSearched = (e) => {
         setInput(e.target.value)
@@ -19,17 +19,7 @@ const Home = () => {
         const g = games.filter((obj) => obj.name.toLowerCase().includes(input.toLowerCase()));
         setGamesFilter(g);
     }
-
-    useState(() => {
-        const lenguage = localStorage.getItem("i18nLanguage");
-        if (lenguage) {
-          i18n.changeLanguage(lenguage);
-        } else {
-          const defaultLang = 'es';
-          i18n.changeLanguage(defaultLang);
-          localStorage.setItem("i18nLanguage", defaultLang);
-        }
-      }, [i18n]);
+    
 
     const renderCards = () => {
         try{
@@ -62,7 +52,7 @@ const Home = () => {
                     id={item.id}
                     name={item.name} 
                     price={item.precio} 
-                    button={t("view more")}
+                    button={"View More"}
                     img={item.logo}
                     liked={item.liked}
                 />
@@ -74,11 +64,9 @@ const Home = () => {
     return (
         <main
           className="w-full min-h-screen mt-36 bg-neutral-900 text-white bg-no-repeat bg-cover bg-center"
-          style={{
-            backgroundImage: `url('https://www.solofondos.com/wp-content/uploads/2021/03/Redmi-Note-5-Styled-Wallpapers-22.jpg')`,
-          }}
-        >
+          style={{ backgroundImage: `url('https://www.solofondos.com/wp-content/uploads/2021/03/Redmi-Note-5-Styled-Wallpapers-22.jpg')`}}>
           <section>
+            
             <div className="p-4 m-4 font-bold text-2xl sm:text-3xl md:text-4xl lg:text-5xl flex items-center justify-center">
               <BusquedaInput catchSearch={catchSearch} inputSearched={inputSearched} />
             </div>
@@ -93,7 +81,7 @@ const Home = () => {
           </section>
         </main>
       );
-};
+}
 
-export default Home;
+export default Home
 

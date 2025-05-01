@@ -11,13 +11,13 @@ import Footer from '../components/Footer/Footer';
 const App = () => {
     return (
         <>
-        {/* Es para que suba */}
         <ScrollToTop/>
         <Nav />
         <GamesProvider>
             <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="/games-details/:id" element={<GameDetails />} />
+                <Route path="/games-details/" element={<GameDetails />} />
                 <Route path="/games-favorites" element={<GamesFavorites />} /> 
             </Routes>
         </GamesProvider>

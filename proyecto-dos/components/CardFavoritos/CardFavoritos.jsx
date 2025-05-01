@@ -1,5 +1,5 @@
 import { Heart} from 'lucide-react';
-import { use, useContext, useEffect } from 'react';
+import { useContext } from 'react';
 import { GamesContext } from "../../components/FetchGames/FetchGames";
 
 

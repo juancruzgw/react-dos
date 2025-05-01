@@ -12,6 +12,11 @@ const GameDetails = () => {
   const [game, setGame] = useState(null);
   const [error, setError] = useState(null);
 
+  const [mensajeLike, setMensajeLike ] = useState("")
+  const [nuevoEstado, setNuevoEstado ] = useState("")
+
+
+
   const obtengoJuegoPorid = async (id) => {
     try {
       const response = await fetch(`https://680c06432ea307e081d2fe6b.mockapi.io/API/v1/juegos/${id}`);
@@ -23,6 +28,32 @@ const GameDetails = () => {
     } catch (error) {
       setError(error.message);
     }
+  };
+
+  const handleLikeButton = () => {
+    toggleLike(game.id)
+  
+    if(nuevoEstado){
+      setNuevoEstado(false);
+    }else{
+      setNuevoEstado(true);
+    }
+
+    setMensajeLike(nuevoEstado ? 'Agregado a favorita ❤️' : 'Quitado de favoritos 🖤 ');
+    setTimeout(() => setMensajeLike(""), 1000);
+  }
+
+  const renderMensajeLike = () => {
+    return (
+        <>
+            {mensajeLike && (
+              <div className="fixed top-10 left-1/2 transform -translate-x-1/2 px-6 py-4 w-fit max-w-[90%] bg-black/70 text-white text-3xl font-semibold rounded-xl shadow-lg text-center z-50 transition-opacity duration-300">
+                {mensajeLike}
+              </div>
+
+            )}
+        </>
+    );
   };
 
   useEffect(() => {
@@ -38,9 +69,9 @@ const GameDetails = () => {
   , [i18n]);
   
   if (error || id == "") {
+    console.log(id)
     return (
       <div className="relative flex justify-center items-center h-screen bg-[#222] text-white">
-
         <img
           src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExZW9sOWVkNW03NnpybmdkOHk1OTFuaW9tc25mYW05aTBqcDV0Ymp5eSZlcD12MV9naWZzX3NlYXJjaCZjdD1n/kspVl6FzbdblOMKRmM/giphy.gif"
           alt="Error background"
@@ -68,7 +99,10 @@ const GameDetails = () => {
      <div
       className="w-full h-screen bg-cover bg-center flex items-center justify-start text-white backdrop-blur-sm bg-black/30 px-4 sm:px-8 shadow-2xl mt-38"
       style={{ backgroundImage: `url(${game.background_image})` }}
-     >
+      >
+      {renderMensajeLike()}
+
+    
       <div className="bg-black/50 p-8 rounded-lg shadow-2xl max-w-2xl text-left w-full ml-12 ">
        <h1 className="text-5xl sm:text-7xl font-extrabold mb-6 drop-shadow-lg animate-fade-in">
         {game.name}
@@ -84,13 +118,15 @@ const GameDetails = () => {
        </p>
   
        <div className="flex justify-end">
+
         <button
-         onClick={() => toggleLike(game.id)}
+         onClick={() => handleLikeButton()}
          className="flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-emerald-900 to-teal-800 hover:from-teal-800 hover:to-emerald-900 text-white rounded-xl shadow-md transition-all duration-900 rounded-full text-white font-semibold shadow-2xl"
         >
          {t('buttonAddFavorite') }
          <ArrowUp className="animate-bounce" />
         </button>
+
        </div>
       </div>
      </div>

@@ -4,7 +4,6 @@ import {handleErrorResponse} from "../../Contant/Constants"
 export const GamesContext = createContext();
 
 export function GamesProvider({ children }, lenguage) {
-  // State to store the games data
 
   const [games, setGames] = useState(() => {
     const stored = localStorage.getItem("games");

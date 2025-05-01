@@ -4,15 +4,14 @@ import { useContext } from "react";
 import { GamesContext } from "../../components/FetchGames/FetchGames";
 
 const Card = ({ id,name, price, button, img, liked}) => {
+  
   const { toggleLike } = useContext(GamesContext);
     
   const isLike = () => {
-    console.log("Liked status:", liked);
     return liked ? (
       <Heart 
       className="text-black-250 w-10 h-10 fill-red-500 hover:scale-120 cursor-pointer" 
       onClick={() => {
-        console.log("Heart clicked - toggling like for:", name);
         toggleLike(id);
       }} 
     />
@@ -20,7 +19,6 @@ const Card = ({ id,name, price, button, img, liked}) => {
     <Heart 
       className="text-black-250 w-10 h-10 hover:scale-120 cursor-pointer" 
       onClick={() => {
-        console.log("Heart clicked - toggling like for:", name);
         toggleLike(id);
       }} 
     />
