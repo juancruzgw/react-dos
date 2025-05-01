@@ -1,9 +1,30 @@
 import { Heart} from 'lucide-react';
+import { use, useContext, useEffect } from 'react';
+import { GamesContext } from "../../components/FetchGames/FetchGames";
 
-const CardFavoritos = ({ name, price, img, liked}) => {
+
+const CardFavoritos = ({ name, price, img, liked, id}) => {
+    const { toggleLike } = useContext(GamesContext);
     
     const isLike = () => {
-      return liked ? <Heart className="text-black-250 w-10 h-10 fill-red-500 hover:scale-120 cursor-pointer " /> : <Heart className="text-black-250 w-10 h-10 hover:scale-120 cursor-pointer " />
+      console.log("Liked status:", liked);
+      return liked ? (
+      <Heart 
+      className="text-black-250 w-10 h-10 fill-red-500 hover:scale-120 cursor-pointer" 
+      onClick={() => {
+        console.log("Heart clicked - toggling like for:", name);
+        toggleLike(id);
+      }} 
+      />
+      ):(
+      <Heart 
+      className="text-black-250 w-10 h-10 hover:scale-120 cursor-pointer" 
+      onClick={() => {
+        console.log("Heart clicked - toggling like for:", name);
+        toggleLike(id);
+      }} 
+      />
+      );
     }
     
     return (

@@ -67,7 +67,6 @@ const Home = () => {
                 
                 <div className="p-4 m-4 font-bold text-5xl ml-16  flex items-center justify-center">
                     <BusquedaInput  catchSearch={catchSearch} inputSearched={inputSearched}/>
-                    
                 </div>
 
                 <div className="h-auto w-[90%] grid grid-cols-3 gap-10 p-6 mx-auto">
