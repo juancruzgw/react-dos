@@ -18,7 +18,6 @@ const GamesFavorites = () => {
     }
     , [games]);
 
-    console.log(favs);
 
     const renderCards = () => {
         return (favs.map((item) => {
@@ -30,7 +29,6 @@ const GamesFavorites = () => {
                 img={item.logo}
                 liked={item.liked}
                 />
-                
         }))
     }
 
@@ -47,7 +45,6 @@ const GamesFavorites = () => {
         <h1 className="text-3xl font-bold mb-4 mt-27">Lista de Favoritos</h1>
   
         <div className=" gap-6 border border-gray-700 rounded-lg p-6 bg-neutral-800">
-          {/* Acá van tus tarjetas */}
           {renderCards()}
         </div>
       </div>

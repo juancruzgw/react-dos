@@ -4,21 +4,25 @@ import { GamesContext } from "../../components/FetchGames/FetchGames";
 
 const Home = () => {
     
-     const { games, toggleLike } = useContext(GamesContext); 
-    
+    const { games} = useContext(GamesContext); 
 
     const renderCards = () => {
-        return (games.map((item) => {
-            return <Card 
-                key={item.id}
-                id={item.id}
-                name={item.name} 
-                price={item.precio} 
-                button={"View More"}
-                img={item.logo}
-                liked={item.liked}
-            />
-        }))
+        try{
+            return (games.map((item) => {
+                return <Card 
+                    key={item.id}
+                    id={item.id}
+                    name={item.name} 
+                    price={item.precio} 
+                    button={"View More"}
+                    img={item.logo}
+                    liked={item.liked}
+                />
+            }))   
+        }catch (error) {
+            console.error("Error renderizando las tarjetas:", error);
+            return <p>Ocurrió un error al mostrar las tarjetas.</p>;
+        }
     }
 
     return (
@@ -30,7 +34,6 @@ const Home = () => {
                 </div>
             </section>
         </main>
-
     )
 }
 

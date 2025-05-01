@@ -1,7 +1,6 @@
 import { Heart} from 'lucide-react';
-import { Link } from "react-router-dom";
 
-const CardFavoritos = ({ id,name, price, button, img, liked}) => {
+const CardFavoritos = ({ name, price, img, liked}) => {
     
     const isLike = () => {
       return liked ? <Heart className="text-black-250 w-10 h-10 fill-red-500 hover:scale-120 cursor-pointer " /> : <Heart className="text-black-250 w-10 h-10 hover:scale-120 cursor-pointer " />
