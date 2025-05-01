@@ -7,7 +7,7 @@ import Home from '../pages/Home/Home';
 import Nav from '../components/Nav/Nav';
 import  ScrollToTop  from '../components/ScrollTop/ScrollTop';
 import i18n from '../utils/i18n'; 
-
+import Footer from '../components/Footer/Footer';
 const App = () => {
     return (
         <>
@@ -21,6 +21,7 @@ const App = () => {
                 <Route path="/games-favorites" element={<GamesFavorites />} /> 
             </Routes>
         </GamesProvider>
+        <Footer/>
         </>
     );
 };

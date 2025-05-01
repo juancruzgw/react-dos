@@ -47,7 +47,10 @@
     "buttonFavorites": "Favorites",
     "buttonTranslate": "Change language to spanish",
 
-    "listFavorites": "List of Favorites"
+    "listFavorites": "List of Favorites",
+
+    "copyright": "All rights reserved",
+    "authors": "Developed by: "
 
 }
 
