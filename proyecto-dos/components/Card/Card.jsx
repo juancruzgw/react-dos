@@ -33,7 +33,7 @@ const Card = ({ id,name, price, button, img, liked}) => {
         {isLike()}
       </div>
     
-      <div className="fleax flex-col h-40 relative z-10 text-white p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-in-out backdrop-blur-sm hover:scale-101">
+      <div className="fleax flex-col h-40 relative z-10 text-white p-4 opacity-100 lg:opacity-0 lg:group-hover:opacity-100 transition-opacity duration-300 ease-in-out backdrop-blur-sm">
         <h2 className="text-4xl font-bold">{name}</h2>
 
         <div className="mt-auto flex items-center justify-end gap-2">
