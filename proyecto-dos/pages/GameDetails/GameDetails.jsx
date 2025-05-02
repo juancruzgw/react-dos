@@ -95,64 +95,65 @@ const GameDetails = () => {
   }
 
   return (
-    <>
-     <div
-      className="w-full h-screen bg-cover bg-center flex items-center justify-start text-white backdrop-blur-sm bg-black/30 px-4 sm:px-8 shadow-2xl mt-38"
-      style={{ backgroundImage: `url(${game.background_image})` }}
-      >
+    <div className="w-full min-h-screen">
+      {/* Sección con imagen de fondo */}
       {renderMensajeLike()}
 
-    
-      <div className="bg-black/50 p-8 rounded-lg shadow-2xl max-w-2xl text-left w-full ml-12 ">
-       <h1 className="text-5xl sm:text-7xl font-extrabold mb-6 drop-shadow-lg animate-fade-in">
-        {game.name}
-       </h1>
+      <div
+        className="w-full min-h-screen bg-cover bg-top mt-10 flex items-center justify-start text-white backdrop-blur-sm bg-black/30 shadow-2xl pt-24 px-4"
+        style={{ backgroundImage: `url(${game.background_image})` }}
+      >
   
-       <p className="text-2xl sm:text-3xl mb-4 bg-black/40 p-2 rounded-md backdrop-blur-sm">
-        {`Precio: $${game.precio}`}
-       </p>
+        <div className="bg-black/50 p-6 sm:p-8 rounded-lg shadow-2xl max-w-2xl text-left w-full lg:ml-12">
+          <h1 className="text-4xl sm:text-6xl font-extrabold mb-6 drop-shadow-lg animate-fade-in">
+            {game.name}
+          </h1>
   
-       <p className="text-lg sm:text-xl mb-8 text-left max-w-2xl">
-       {t(`${game.name.toLowerCase()}`) + ``}
+          <p className="text-xl sm:text-2xl mb-4 bg-black/40 p-2 rounded-md backdrop-blur-sm">
+            {`Precio: $${game.precio}`}
+          </p>
+  
+          <p className="text-base sm:text-lg mb-8 text-left">
+            {t(`${game.name.toLowerCase()}`)}
+          </p>
+  
+          <div className="flex justify-end">
+            <button
+              onClick={handleLikeButton}
+              className="flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-emerald-900 to-teal-800 hover:from-teal-800 hover:to-emerald-900 text-white rounded-full font-semibold shadow-2xl transition-all duration-900"
+            >
+              {t('buttonAddFavorite')}
+              <ArrowUp className="animate-bounce" />
+            </button>
+          </div>
+        </div>
+      </div>
+  
+      {/* Sección con info adicional */}
+      <div className="flex flex-col lg:flex-row items-center justify-start gap-40 bg-[#1f1f2b] shadow-2xl px-16 py-12">
+        <img
+          src={game.gift_url}
+          className="w-full max-w-md rounded-lg h-auto transition-transform duration-300 ease-in-out hover:scale-105 hover:shadow-2xl"
+          alt="Game GIF"
+        />
         
-       </p>
-  
-       <div className="flex justify-end">
-
-        <button
-         onClick={() => handleLikeButton()}
-         className="flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-emerald-900 to-teal-800 hover:from-teal-800 hover:to-emerald-900 text-white rounded-xl shadow-md transition-all duration-900 rounded-full text-white font-semibold shadow-2xl"
-        >
-         {t('buttonAddFavorite') }
-         <ArrowUp className="animate-bounce" />
-        </button>
-
-       </div>
+        <div className="space-y-4 text-center lg:text-left">
+          <p className="text-2xl sm:text-4xl font-bold text-gray-300">
+            {t('genero')} <span className="font-normal text-white">{game.genero}</span>
+          </p>
+          <p className="text-2xl sm:text-4xl font-semibold text-gray-300">
+            {t('empresa')} <span className="font-normal text-white">{game.empresa}</span>
+          </p>
+          <p className="text-2xl sm:text-4xl font-semibold text-gray-300">
+            {t('rating')} <span className="font-normal text-white">{game.rating}</span>
+          </p>
+          <p className="text-2xl sm:text-4xl font-semibold text-gray-300">
+            {t('released')} <span className="font-normal text-white">{game.released}</span>
+          </p>
+        </div>
       </div>
-     </div>
-     <div className="flex items-center justify-start gap-12  bg-[#1f1f2b] shadow-2xl ">
-      <img
-       src={game.gift_url}
-       className="m-16  rounded-lg  w-[40%] h-auto hover:scale-101 hover:shadow-2xl transition-transform duration-300 ease-in-out"
-      />
-      <div className="space-y-4 mb-8">
-       <p className="text-4xl sm:text-5xl font-bold text-gray-300">
-       {t('genero') } <span className="font-normal text-white">{game.genero}</span>
-       </p>
-       <p className="text-4xl sm:text-5xl font-semibold text-gray-300">
-       {t('empresa') }   <span className="font-normal text-white">{game.empresa}</span>
-       </p>
-       <p className="text-4xl sm:text-5xl font-semibold text-gray-300">
-       {t('rating') }  <span className="font-normal text-white">{game.rating}</span>
-       </p>
-       <p className="text-4xl sm:text-5xl font-semibold text-gray-300">
-       {t('released') }  
-        <span className="font-normal text-white">{game.released}</span>
-       </p>
-      </div>
-     </div>
-    </>
-   );
+    </div>
+  );
 };
 
 export default GameDetails;
