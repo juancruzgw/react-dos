@@ -9,6 +9,7 @@ const Footer = () => {
 
                 <p className="text-xl">© 2025 {t("copyright")}</p>
                 <p className="text-xl">{t("authors")} Juan Cruz, Diego y Valentín </p>
+                <p className="text-xl mt-3">{t("greeting")} <a className="text-blue-500 underline"  target="_blank" href="https://github.com/agustinchiarotto"> Agustín Chiarotto </a> ☕</p>
             </div>
 
             <div className="flex justify-center mt-4 space-x-4 ">
