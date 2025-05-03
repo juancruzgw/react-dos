@@ -7,13 +7,13 @@ const Footer = () => {
             
             <div className="container mx-auto text-center px-4 pt-5 flex flex-col items-center space-y-4">
 
-                <p className="text-base sm:text-xl text-lg">© 2025 {t("copyright")}</p>
-                <p className="text-base sm:text-xl text-lg">{t("authors")} Juan Cruz, Diego y Valentín </p>
-                <p className="text-base sm:text-xl text-lg">{t("greeting")} <a className="text-blue-500 underline"  target="_blank" href="https://github.com/agustinchiarotto"> Agustín Chiarotto </a> ☕</p>
+                <p className="text-base sm:text-sm text-md">© 2025 {t("copyright")}</p>
+                <p className="text-base sm:text-sm text-md">{t("authors")} Juan Cruz, Diego y Valentín </p>
+                <p className="text-base sm:text-sm text-md">{t("greeting")} <a className="text-blue-500 underline"  target="_blank" href="https://github.com/agustinchiarotto"> Agustín Chiarotto </a> ☕</p>
             </div>
 
             <div className="flex justify-center pt-4 space-x-4 ">
-                <a href="https://github.com/juancruzgw/react-dos" target='_blanck'>
+                <a href="https://github.com/juancruzgw/react-dos" target='_blank'>
                     <img src="https://cdn-icons-png.flaticon.com/512/25/25231.png" alt="" className="w-10 h-10  animate-bounce drop-shadow-white" />   
                 </a>
 
