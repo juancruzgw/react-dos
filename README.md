@@ -38,38 +38,32 @@ Una aplicación web desarrollada en **React** que muestra una colección de vide
 
 ## 🗂️ Estructura del proyecto
 
-proyecto-dos/
-│
-├── components/
-│ ├── Busqueda/ # Input de búsqueda
-│ ├── Button/ # Botón reutilizable
-│ ├── Card/ # Card de juego
-│ ├── CardFavoritos/ # Card para juegos favoritos
-│ ├── FetchGames/ # Lógica para fetch
-│ ├── Footer/ # Footer de la app
-│ ├── Nav/ # Navbar con idioma y favoritos (HEADER)
-│ └── ScrollTop/ # Scroll to top al navegar
-│
-├── locales/
-│ ├── en/translation.json
-│ └── es/translation.json
-│
-├── pages/
-│ ├── GameDetails/
-│ ├── GamesFavorites/
-│ └── Home/
-│
-├── src/
-│ ├── App.jsx
-│ ├── main.jsx
-│ └── utils/i18n.js
-│
-├── public/
-│ └── index.html
-│
-├── package.json
-│
-├── README.md
+📁 proyecto-dos  
+├── 📁 components  
+│   ├── 📁 Busqueda           # Input de búsqueda  
+│   ├── 📁 Button             # Botón reutilizable  
+│   ├── 📁 Card               # Card de juego  
+│   ├── 📁 CardFavoritos      # Card para juegos favoritos  
+│   ├── 📁 FetchGames         # Lógica para fetch  
+│   ├── 📁 Footer             # Footer de la app  
+│   ├── 📁 Nav                # Navbar con idioma y favoritos (HEADER)  
+│   ├── 📁 ScrollTop          # Scroll to top al navegar  
+├── 📁 locales  
+│   ├── 📄 en/translation.json  
+│   └── 📄 es/translation.json  
+├── 📁 pages  
+│   ├── 📁 GameDetails  
+│   ├── 📁 GamesFavorites  
+│   └── 📁 Home  
+├── 📁 src  
+│   ├── 📄 App.jsx  
+│   ├── 📄 main.jsx  
+│   └── 📄 utils/i18n.js  
+├── 📁 public  
+│   └── 📄 index.html  
+├── 📄 package.json  
+└── 📄 README.md
+
 
 ## 📦 Instalación
 
