@@ -39,7 +39,7 @@ const GameDetails = () => {
       setNuevoEstado(true);
     }
 
-    setMensajeLike(nuevoEstado ? 'Agregado a favorita ❤️' : 'Quitado de favoritos 🖤 ');
+    setMensajeLike(nuevoEstado ? 'Quitado de favoritos 🖤 ' : 'Agregado a favorita ❤️');
     setTimeout(() => setMensajeLike(""), 1000);
   }
 
