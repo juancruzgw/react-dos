@@ -28,7 +28,7 @@ const Navbar = () => {
 
 
   return (
-    <nav className="w-full h-40 flex items-center justify-between px-8 py-4 bg-[#1f1f2b] text-white fixed top-0 z-50 shadow-md">
+    <nav className="w-full h-36 flex items-center justify-between px-8 py-4 bg-[#1f1f2b] text-white fixed top-0 z-50 shadow-md">
       <Link to="/" className="ml-4">
         <img
           className="w-16 h-16 transition-transform duration-300 ease-in-out hover:scale-110"

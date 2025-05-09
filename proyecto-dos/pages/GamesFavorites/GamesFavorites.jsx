@@ -1,4 +1,3 @@
-import Button from "../../components/Button/Button";
 import { useState } from "react";
 import { useContext } from "react";
 import { GamesContext } from "../../components/FetchGames/FetchGames";
@@ -19,8 +18,16 @@ const GamesFavorites = () => {
     }
     , [games]);
 
+    const renderCards = () => { 
 
-    const renderCards = () => {
+        if(favs.length === 0){
+          return (
+            <div>
+              <p className="text-amber-400">No se agrego ningun favorito todavia.</p>
+            </div>
+          )
+        }
+
         return (favs.map((item) => {
             return <CardFavoritos
                 id={item.id}
@@ -43,7 +50,8 @@ const GamesFavorites = () => {
       </div>
   
       <div>
-        <h1 className="text-3xl font-bold mb-4 mt-27">{t('listFavorites') }</h1>
+        <h1 className="text-3xl font-bold mb-4 mt-27 text-red-400">{t('listFavorites') }</h1>
+
   
         <div className=" gap-6 border border-gray-700 rounded-lg p-6 bg-neutral-800 ">
           {renderCards()}

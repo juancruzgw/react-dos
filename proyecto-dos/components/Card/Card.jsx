@@ -26,27 +26,27 @@ const Card = ({ id,name, price, button, img, liked}) => {
   }
   
   return (
-      <button className="relative group h-[75vh] bg-amber-50 rounded-xl overflow-hidden flex flex-col justify-between hover:scale-101 transition-transform duration-300 ease-in-out shadow-xl/30">
-      <img src={img} alt="" className="absolute inset-0 w-full h-full object-cover z-0" />
+      <div className="relative group h-[58vh] bg-amber-50 rounded-xl  bg-cover flex flex-col justify-between hover:scale-101 transition-transform duration-300 ease-in-out shadow-xl/30">
+       <img src={img} alt="" className="absolute inset-0 w-full h-full object-cover z-0 rounded-xl"/>
       
-      <div className="relative z-10 text-white p-4 flex justify-end text-4xl">
-        {isLike()}
-      </div>
-    
-      <div className="fleax flex-col h-40 relative z-10 text-white p-4 opacity-100 lg:opacity-0 lg:group-hover:opacity-100 transition-opacity duration-300 ease-in-out backdrop-blur-sm">
-        <h2 className="text-4xl font-bold">{name}</h2>
-
-        <div className="mt-auto flex items-center justify-end gap-2">
-        <p className="text-xl font-bold mr-auto">${price}</p>
-        <Link
-          to={`/games-details/${id}`}
-          className="px-4 py-1 bg-black text-white rounded-2xl h-[30px] flex items-center justify-center">
-          {button}
-        </Link>
+        <div className="relative z-10 text-white p-4 flex justify-end text-4xl">
+          {isLike()}
         </div>
+    
+        <div className="fleax flex-col h-40 relative z-10 text-white p-4 opacity-100 lg:opacity-0 lg:group-hover:opacity-100 transition-opacity duration-300 ease-in-out backdrop-blur-sm">
+          <h2 className="text-4xl font-bold">{name}</h2>
 
+          <div className="mt-auto flex items-center justify-end gap-2">
+          <p className="text-xl font-bold mr-auto">${price}</p>
+          <Link
+            to={`/games-details/${id}`}
+            className="px-4 py-1 bg-black text-white rounded-2xl h-[30px] flex items-center justify-center">
+            {button}
+          </Link>
+          </div>
+
+        </div>
       </div>
-      </button>
     );
   };
   

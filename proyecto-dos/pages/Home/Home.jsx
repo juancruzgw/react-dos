@@ -71,11 +71,11 @@ const Home = () => {
               <BusquedaInput catchSearch={catchSearch} inputSearched={inputSearched} />
             </div>
       
-            <div className="w-[90%] grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 p-4 mx-auto">
+            <div className="w-[80%] grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 p-4 mx-auto shadow-2xl">
               {renderFilterCard()}
             </div>
       
-            <div className="w-[90%] grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 p-4 mx-auto">
+            <div className="w-[80%] grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 p-4 mx-auto">
               {renderCards()}
             </div>
           </section>

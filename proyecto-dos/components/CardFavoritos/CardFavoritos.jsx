@@ -7,12 +7,10 @@ const CardFavoritos = ({ name, price, img, liked, id}) => {
     const { toggleLike } = useContext(GamesContext);
     
     const isLike = () => {
-      console.log("Liked status:", liked);
       return liked ? (
       <Heart 
       className="text-black-250 w-10 h-10 fill-red-500 hover:scale-120 cursor-pointer" 
       onClick={() => {
-        console.log("Heart clicked - toggling like for:", name);
         toggleLike(id);
       }} 
       />
@@ -20,7 +18,6 @@ const CardFavoritos = ({ name, price, img, liked, id}) => {
       <Heart 
       className="text-black-250 w-10 h-10 hover:scale-120 cursor-pointer" 
       onClick={() => {
-        console.log("Heart clicked - toggling like for:", name);
         toggleLike(id);
       }} 
       />

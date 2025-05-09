@@ -69,7 +69,6 @@ const GameDetails = () => {
   , [i18n]);
   
   if (error || id == "") {
-    console.log(id)
     return (
       <div className="relative flex justify-center items-center h-screen bg-[#222] text-white">
         <img
