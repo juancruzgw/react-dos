@@ -19,7 +19,7 @@ const Busqueda = ({ inputSearched, catchSearch }) => {
                 >
                     {t('search')}
                 </button>
-            </div>)░
+            </div>
         </div>
     );
 }
