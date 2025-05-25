@@ -36,7 +36,7 @@ const GamesFavorites = () => {
                 button={"View More"}
                 img={item.logo}
                 liked={item.liked}
-                />
+            />
         }))
     }
 
@@ -52,10 +52,10 @@ const GamesFavorites = () => {
       <div>
         <h1 className="text-3xl font-bold mb-4 mt-27 text-red-400">{t('listFavorites') }</h1>
 
-  
         <div className=" gap-6 border border-gray-700 rounded-lg p-6 bg-neutral-800 ">
           {renderCards()}
         </div>
+
       </div>
     </section>
   </main>

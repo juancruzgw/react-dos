@@ -1,12 +1,77 @@
-# React + Vite
+# 🎮 DOMINIO: Jueguitos 2025
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Una aplicación web desarrollada en **React** que muestra una colección de videojuegos populares, permite ver detalles, agregar a favoritos, buscar y alternar entre idiomas. Usa una API simulada con [MockAPI](https://680c06432ea307e081d2fe6b.mockapi.io/juegos) <-- ENDPOINT y está diseñada con **Tailwind CSS**.
 
-Currently, two official plugins are available:
+## DEPLOY https://react-dos.vercel.app/
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## Expanding the ESLint configuration
+## 👤 Integrantes
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- Juan Cruz Geslowski FAI [4881]
+- Diego Avila Rios FAI [4877]
+- Valentín Bustos Villar FAI [4019]
+
+## 🚀 Features
+
+- ✅ Listado de juegos populares
+- ❤️ Agregar y quitar favoritos
+- 🌍 Soporte multilenguaje (ES / EN)
+- 🔎 Buscador en tiempo real
+- 📄 Vista de detalles por juego
+- 📱 Responsive y diseño moderno
+- 🧠 Estado global simple con `useState`
+- ☁️ API simulada vía MockAPI
+
+---
+
+## 🛠️ Tecnologías
+
+- React
+- React Router
+- Tailwind CSS
+- MockAPI
+- i18next
+- Lucide React
+
+---
+
+## 🗂️ Estructura del proyecto
+
+📁 proyecto-dos  
+├── 📁 components  
+│   ├── 📁 Busqueda           # Input de búsqueda  
+│   ├── 📁 Button             # Botón reutilizable  
+│   ├── 📁 Card               # Card de juego  
+│   ├── 📁 CardFavoritos      # Card para juegos favoritos  
+│   ├── 📁 FetchGames         # Lógica para fetch  
+│   ├── 📁 Footer             # Footer de la app  
+│   ├── 📁 Nav                # Navbar con idioma y favoritos (HEADER)  
+│   ├── 📁 ScrollTop          # Scroll to top al navegar  
+├── 📁 locales  
+│   ├── 📄 en/translation.json  
+│   └── 📄 es/translation.json  
+├── 📁 pages  
+│   ├── 📁 GameDetails  
+│   ├── 📁 GamesFavorites  
+│   └── 📁 Home  
+├── 📁 src  
+│   ├── 📄 App.jsx  
+│   ├── 📄 main.jsx  
+│   └── 📄 utils/i18n.js  
+├── 📁 public  
+│   └── 📄 index.html  
+├── 📄 package.json  
+└── 📄 README.md
+
+
+## 📦 Instalación
+
+```bash
+git clone https://github.com/juancruzgw/react-dos
+cd react-dos
+npm install
+npm run dev
+
+
+```
